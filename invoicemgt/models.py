@@ -5,7 +5,7 @@ class Invoice(models.Model):
 	invoice_number = models.IntegerField(blank=True, null=True)
 	invoice_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
 	name = models.CharField('Customer Name', max_length=120, default='', blank=True, null=True)
-	
+
 	line_one = models.CharField('Line 1', max_length=120, default='', blank=True, null=True)
 	line_one_quantity = models.IntegerField('Quantity', default=0, blank=True, null=True)
 	line_one_unit_price = models.IntegerField('Unit Price (D)', default=0, blank=True, null=True)
@@ -44,5 +44,10 @@ class Invoice(models.Model):
 		)
 	invoice_type = models.CharField(max_length=50, default='', blank=True, null=True, choices=invoice_type_choice)
 
-	def __unicode__(self):
-		return self.invoice_number
+    def __str__(self):
+        return self.name + ' . ' + str(self.invoice_number)
+
+    # def __unicode__(self):
+        # return self.invoice_number
+
+    
