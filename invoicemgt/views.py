@@ -1,5 +1,7 @@
+from turtle import title
 from django.shortcuts import render
 from .forms import InvoiceForm
+from models import *
 # Create your views here.
 
 def home(request):
@@ -15,3 +17,11 @@ def add_invoice(request):
     context = {"form": form , "title": "New Invoice"}
 
     return render (request , 'add_invoice.html' , context)
+
+def list_invoice(request):
+    title = "List of Invoices"
+    queryset = Invoice.objects.all()
+    context = {
+        "title" : title,
+        "queryset" : queryset
+    }
