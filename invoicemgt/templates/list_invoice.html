@@ -8,6 +8,7 @@
 
     {{title}}
     <br>
+    <br>
     {% for instance in queryset %}
         {{instance.invoice_date}},
         {{instance.name}},
@@ -15,6 +16,8 @@
         {{instance.invoice_type}},
         {{instance.line_one_total_price}}
     <br>
+    ..............................................<br>
+    
     {% endfor %}
     
 </body>

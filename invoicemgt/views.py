@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .forms import InvoiceForm
 from .models import Invoice
 # Create your views here.
@@ -13,6 +13,8 @@ def add_invoice(request):
     form = InvoiceForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return redirect('/list_invoice')
+        
     context = {"form": form , "title": "New Invoice"}
 
     return render (request , 'add_invoice.html' , context)
