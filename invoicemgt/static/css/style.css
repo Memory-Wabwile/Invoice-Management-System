@@ -6,3 +6,17 @@
 .myForm{
     margin: 30px;
 }
+.table{
+    font-size: 13px;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+/* make alternating colours for the table */
+.table tr:nth-child(odd){
+    background-color: #B8CAE4;
+}
+.table tr:nth-child(odd){
+    background: #dae5f4;
+}
