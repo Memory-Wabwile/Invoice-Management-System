@@ -1,4 +1,7 @@
+
 <!DOCTYPE html>
+{% include 'navbar.html' %}
+<br>
 <html lang="en">
 <head>
     
@@ -9,16 +12,27 @@
     {{title}}
     <br>
     <br>
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>COUNT</th>
+                <th>DATE</th>
+                <th>CUSTOMER NAME</th>
+                <th>INVOICE NUMBER</th>
+                <th>AMOUNT</th>
+            </tr>
+        </thead>
     {% for instance in queryset %}
-        {{instance.invoice_date}},
-        {{instance.name}},
-        {{instance.invoice_number}},
-        {{instance.invoice_type}},
-        {{instance.line_one_total_price}}
-    <br>
-    ..............................................<br>
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{instance.invoice_date}}</td>
+        <td>{{instance.name}}</td>
+        <td>{{instance.invoice_number}}</td>
+        <td>{{instance.line_one_total_price}}</td>
+    </tr>
     
     {% endfor %}
+</table>
     
 </body>
 </html>
