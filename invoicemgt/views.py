@@ -12,19 +12,24 @@ def home(request):
 
 def add_invoice(request):
     form = InvoiceForm(request.POST or None)
+    queryset = Invoice.objects.order_by('-invoice_date')[:6]
+    total_invoices = Invoice.objects.count()
+    
     if form.is_valid():
         form.save()
         messages.success(request , "Successfully Saved")
         return redirect('/list_invoice')
         
-    context = {"form": form , "title": "New Invoice"}
+    context = {"form": form ,
+                 "title": "New Invoice"
+                 }
 
     return render (request , 'add_invoice.html' , context)
 
 def list_invoice(request):
     title = "List of Invoices"
     queryset = Invoice.objects.all()
-
+    
     form = InvoiceSearchForm(request.POST or None)
     context = { 
         "title" : title,
@@ -67,3 +72,6 @@ def delete_invoice(request , pk):
         queryset.delete()
         return redirect('/list_invoice')
     return render (request , 'delete_invoice.html')
+
+# total_invoices = Invoice.objects.count()
+# 
