@@ -71,5 +71,16 @@
         </form>
     </div><!-- End myform -->
     
+    <div class="recent">
+      <span class="" >Recent invoices</span>
+      <span class="" >{{total_invoices}}</span><br><br>
+      {% for instance in queryset %}
+        <div>
+          <div class="" >{{instance.name}}</div>
+          <div class="" >{{instance.invoice_date}}</div>
+        </div>
+        <div class="" >{{instance.total}}</div><br>
+      {% endfor %}
+    </div>
 </body>
 </html>

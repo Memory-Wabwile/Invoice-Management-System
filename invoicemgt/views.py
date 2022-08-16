@@ -14,14 +14,16 @@ def add_invoice(request):
     form = InvoiceForm(request.POST or None)
     queryset = Invoice.objects.order_by('-invoice_date')[:6]
     total_invoices = Invoice.objects.count()
-    
+
     if form.is_valid():
         form.save()
         messages.success(request , "Successfully Saved")
         return redirect('/list_invoice')
         
     context = {"form": form ,
-                 "title": "New Invoice"
+                 "title": "New Invoice",
+                 'queryset':queryset,
+                 'total_invoices': total_invoices,
                  }
 
     return render (request , 'add_invoice.html' , context)
