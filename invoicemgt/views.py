@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .forms import InvoiceForm , InvoiceSearchForm
+from .forms import InvoiceForm , InvoiceSearchForm, InvoiceUpdateForm
 from .models import Invoice
 # Create your views here.
 
@@ -39,5 +39,21 @@ def list_invoice(request):
             "form" : form ,
             "title" : title,
             "queryset" : queryset,
-        }
+    }
     return render (request , "list_invoice.html" , context)
+
+def update_invoice(request,pk):
+    queryset = Invoice.objects.get(id=pk)
+    form = InvoiceUpdateForm(instance=queryset)
+
+    if request.method == 'POST':
+        form = InvoiceUpdateForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+            return redirect('/list_invoice')
+
+    context = {
+        'form': form
+    }
+
+    return redirect(request , 'add_invoice.html' , context)
