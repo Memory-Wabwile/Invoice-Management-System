@@ -32,20 +32,22 @@
                 <th>CUSTOMER NAME</th>
                 <th>INVOICE NUMBER</th>
                 <th>AMOUNT</th>
+                <th>DELETE</th>
             </tr>
         </thead>
         {% for instance in queryset %}
         <tr>
             <td>{{forloop.counter}}</td>
             <td>{{instance.invoice_date}}</td>
-            <td>{{instance.name}}</td>
+            <td><a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a></td>
             <td>{{instance.invoice_number}}</td>
             <td>{{instance.line_one_total_price}}</td>
+            <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
         </tr>
 
         {% endfor %}
     </table>
-<td><a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a></td>
+
 </body>
 
 </html>

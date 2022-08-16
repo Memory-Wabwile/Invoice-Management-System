@@ -39,7 +39,6 @@ class Invoice(models.Model):
 	paid = models.BooleanField(default=False)
 	invoice_type_choice = (
 			('Receipt', 'Receipt'),
-			('Proforma Invoice', 'Proforma Invoice'),
 			('Invoice', 'Invoice'),
 		)
 	invoice_type = models.CharField(max_length=50, default='', blank=True, null=True, choices=invoice_type_choice)

@@ -56,7 +56,7 @@ def update_invoice(request,pk):
         'form': form
     }
 
-    return redirect(request , 'add_invoice.html' , context)
+    return render(request , 'add_invoice.html' , context)
 
 
 def delete_invoice(request , pk):
