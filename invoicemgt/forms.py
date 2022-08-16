@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django import forms
 from .models import Invoice
 
@@ -23,8 +24,19 @@ class InvoiceForm(forms.ModelForm):
 		if not name:
 			raise forms.ValidationError('This field is required')
 		return name
-		
+
+	def clean_line_one(self):
+		line_one = self.cleaned_data.get('line_one')
+		if not line_one:
+			raise forms.ValidationError('This field is required')
+		return line_one
+
 class InvoiceSearchForm(forms.ModelForm):
 	class Meta:
 		model = Invoice
 		fields = ['invoice_number' , 'name']
+
+class InvoiceUpdateForm(forms.ModelForm):
+	class Meta:
+		model = Invoice
+		fields = []
