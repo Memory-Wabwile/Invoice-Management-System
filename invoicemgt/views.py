@@ -24,11 +24,20 @@ def list_invoice(request):
     queryset = Invoice.objects.all()
 
     form = InvoiceSearchForm(request.POST or None)
-    if request.method == 'POST':
-        queryset = Invoice.objects.filter(invoice_number__icontains=form['invoice_number'].value(), name__icontains=form['name'].value())
     context = { 
-        "form" : form ,
         "title" : title,
-        "queryset" : queryset
+        "queryset" : queryset,
+        "form" : form ,
     }
+
+    if request.method == 'POST':
+        queryset = Invoice.objects.filter(
+                                    invoice_number__icontains=form['invoice_number'].value(), 
+                                    name__icontains=form['name'].value()
+                                    )
+        context = { 
+            "form" : form ,
+            "title" : title,
+            "queryset" : queryset,
+        }
     return render (request , "list_invoice.html" , context)

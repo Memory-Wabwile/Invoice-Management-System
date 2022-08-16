@@ -12,6 +12,18 @@ class InvoiceForm(forms.ModelForm):
 				'line_five', 'line_five_quantity', 'line_five_unit_price', 'line_five_total_price', 
 				'total', 'paid', 'invoice_type']
 
+	def clean_invoice_number(self):
+		invoice_number = self.cleaned_data.get('invoice_number')
+		if not invoice_number:
+			raise forms.ValidationError('This field is required')
+		return invoice_number
+
+	def clean_name(self):
+		name = self.cleaned_data.get('name')
+		if not name:
+			raise forms.ValidationError('This field is required')
+		return name
+		
 class InvoiceSearchForm(forms.ModelForm):
 	class Meta:
 		model = Invoice
