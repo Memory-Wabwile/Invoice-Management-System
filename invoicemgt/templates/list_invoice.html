@@ -15,7 +15,11 @@
 
 <body>
 
-    {{title}}
+    {{title}}<br>
+    <form method="'POST" action=""> {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Search"/>
+    </form>
     <br>
     <br>
     <table class="table">
