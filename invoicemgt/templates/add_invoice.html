@@ -97,6 +97,7 @@
                   {{ form.line_four_total_price|as_crispy_field }}
                 </div>
               </div>
+
               <div class="form-row">
                 <div class="form-group col-md-6">
                   {{ form.line_five|as_crispy_field }}
@@ -113,6 +114,79 @@
               </div>
 
               <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form.line_six|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_six_quantity|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_six_unit_price|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_six_total_price|as_crispy_field }}
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form.line_seven|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_seven_quantity|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_seven_unit_price|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_seven_total_price|as_crispy_field }}
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form.line_eight|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_eight_quantity|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_eight_unit_price|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_eight_total_price|as_crispy_field }}
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form.line_nine|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_nine_quantity|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_nine_unit_price|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_nine_total_price|as_crispy_field }}
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form.line_ten|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_ten_quantity|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_ten_unit_price|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2">
+                  {{ form.line_ten_total_price|as_crispy_field }}
+                </div>
+              </div>
+
+              <div class="form-row">
                 <div class="form-group col-md-12">
                   {{ form.invoice_type|as_crispy_field }}
                 </div>
@@ -120,6 +194,8 @@
                   {{ form.total|as_crispy_field }}
                 </div>
               </div>
+
+              <button id="more-line" type="button" class="btn btn-primary" > Show / Hide More Lines </button>
 
               <button type="submit" class="btn btn-primary">Save</button>
 
