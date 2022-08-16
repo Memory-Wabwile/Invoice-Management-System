@@ -11,6 +11,11 @@ class InvoiceForm(forms.ModelForm):
 				'line_three', 'line_three_quantity', 'line_three_unit_price', 'line_three_total_price',
 				'line_four', 'line_four_quantity', 'line_four_unit_price', 'line_four_total_price',
 				'line_five', 'line_five_quantity', 'line_five_unit_price', 'line_five_total_price', 
+				'line_six', 'line_six_quantity', 'line_six_unit_price', 'line_six_total_price',
+				'line_seven', 'line_seven_quantity', 'line_seven_unit_price', 'line_seven_total_price',
+				'line_eight', 'line_eight_quantity', 'line_eight_unit_price', 'line_eight_total_price',
+				'line_nine', 'line_nine_quantity', 'line_nine_unit_price', 'line_nine_total_price',
+				'line_ten', 'line_ten_quantity', 'line_ten_unit_price', 'line_ten_total_price', 
 				'total', 'paid', 'invoice_type']
 
 	def clean_invoice_number(self):
@@ -52,6 +57,11 @@ class InvoiceUpdateForm(forms.ModelForm):
 				'line_three', 'line_three_quantity', 'line_three_unit_price', 'line_three_total_price',
 				'line_four', 'line_four_quantity', 'line_four_unit_price', 'line_four_total_price',
 				'line_five', 'line_five_quantity', 'line_five_unit_price', 'line_five_total_price', 
+				'line_six', 'line_six_quantity', 'line_six_unit_price', 'line_six_total_price',
+				'line_seven', 'line_seven_quantity', 'line_seven_unit_price', 'line_seven_total_price',
+				'line_eight', 'line_eight_quantity', 'line_eight_unit_price', 'line_eight_total_price',
+				'line_nine', 'line_nine_quantity', 'line_nine_unit_price', 'line_nine_total_price',
+				'line_ten', 'line_ten_quantity', 'line_ten_unit_price', 'line_ten_total_price', 
 				'total', 'paid', 'invoice_type']
 
 	def clean_invoice_number(self):
