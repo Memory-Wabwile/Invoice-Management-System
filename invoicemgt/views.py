@@ -57,3 +57,6 @@ def update_invoice(request,pk):
     }
 
     return redirect(request , 'add_invoice.html' , context)
+
+
+def delete_invoice()
