@@ -1,18 +1,24 @@
+{% load static %}
+{% include 'navbar.html' %}
 
+   
 <!DOCTYPE html>
 {% include 'navbar.html' %}
 <br>
 <html lang="en">
+
 <head>
-    
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{{title}}</title>
 </head>
+
 <body>
 
     {{title}}
     <br>
     <br>
-    <table class="table" >
+    <table class="table">
         <thead>
             <tr>
                 <th>COUNT</th>
@@ -22,17 +28,18 @@
                 <th>AMOUNT</th>
             </tr>
         </thead>
-    {% for instance in queryset %}
-    <tr>
-        <td>{{forloop.counter}}</td>
-        <td>{{instance.invoice_date}}</td>
-        <td>{{instance.name}}</td>
-        <td>{{instance.invoice_number}}</td>
-        <td>{{instance.line_one_total_price}}</td>
-    </tr>
-    
-    {% endfor %}
-</table>
-    
+        {% for instance in queryset %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{instance.invoice_date}}</td>
+            <td>{{instance.name}}</td>
+            <td>{{instance.invoice_number}}</td>
+            <td>{{instance.line_one_total_price}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
 </body>
+
 </html>
