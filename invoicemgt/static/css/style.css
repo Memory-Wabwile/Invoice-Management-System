@@ -1,10 +1,7 @@
 body{
-    background-color: #e7e7e7!important;
+    background-color: red!important;
 }
-.main-container{
-    width: 85%;
-    margin: auto;
-}
+
 .topHomeClass{
     text-align: center;
     border: 2px solid black;
@@ -34,4 +31,10 @@ body{
     text-align: center;
     width: 50%;
     height: 5vh;
+}
+
+/* list invoice styles */
+.main-container{
+    width: 85%;
+    margin: auto;
 }
