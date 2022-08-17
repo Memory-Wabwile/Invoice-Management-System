@@ -67,4 +67,6 @@ $(document).ready(function(){
         $('#id_total').val(total);
     });
 
+    $('.table').paging({limit:15});
+
 }); 
