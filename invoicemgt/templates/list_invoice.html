@@ -15,47 +15,48 @@
 </head>
 
 <body>
+    <div class="main-container">
 
-    {{title}}<br>
+        {{title}}<br>
 
-    {% if messages %}
-        <ul class="messages" >
+        {% if messages %}
+        <ul class="messages">
             {% for message in messages %}
-                <li{% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </li>
-            {% endfor %}
+            <li{% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </li>
+                {% endfor %}
         </ul>
-    {% endif %}
-    <div class="myForm">
-        <form method='POST' action=''> {% csrf_token %}
-            {{form|crispy}}
-            <input type="submit" value='Search' />
-        </form>
-    </div>
+        {% endif %}
+        <div class="myForm">
+            <form method='POST' action=''> {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" value='Search' />
+            </form>
+        </div>
 
-    <table class="table">
-        <thead>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>COUNT</th>
+                    <th>DATE</th>
+                    <th>CUSTOMER NAME</th>
+                    <th>INVOICE NUMBER</th>
+                    <th>AMOUNT</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+            {% for instance in queryset %}
             <tr>
-                <th>COUNT</th>
-                <th>DATE</th>
-                <th>CUSTOMER NAME</th>
-                <th>INVOICE NUMBER</th>
-                <th>AMOUNT</th>
-                <th>DELETE</th>
+                <td>{{forloop.counter}}</td>
+                <td>{{instance.invoice_date}}</td>
+                <td><a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a></td>
+                <td>{{instance.invoice_number}}</td>
+                <td>{{instance.line_one_total_price}}</td>
+                <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
             </tr>
-        </thead>
-        {% for instance in queryset %}
-        <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{instance.invoice_date}}</td>
-            <td><a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a></td>
-            <td>{{instance.invoice_number}}</td>
-            <td>{{instance.line_one_total_price}}</td>
-            <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
-        </tr>
 
-        {% endfor %}
-    </table>
-
+            {% endfor %}
+        </table>
+    </div>
 </body>
 
 </html>
