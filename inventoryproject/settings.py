@@ -128,4 +128,10 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/list_invoice'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
