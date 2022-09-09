@@ -182,7 +182,7 @@ def list_invoice(request):
                 c.setFont('Helvetica', 12, leading=None)
                 c.drawCentredString(397, 620, "Amount:")
                 c.setFont('Helvetica-Bold', 12, leading=None)
-                c.drawCentredString(484, 622, 'D'+total)
+                c.drawCentredString(484, 622, '$'+total)
 
 
                 c.setFont('Helvetica', 12, leading=None)
@@ -211,6 +211,7 @@ def list_invoice(request):
                 c.drawCentredString(295, 210, "__________________________________________________________")
 
                 c.setFont('Helvetica-Bold', 12, leading=None)
+                # values from left and bottom of the paper
                 c.drawCentredString(110, 520, 'ITEMS')     
                 c.drawCentredString(220, 520, 'QUANTITY')     
                 c.drawCentredString(330, 520, 'UNIT PRICE')     
@@ -292,7 +293,7 @@ def list_invoice(request):
                 c.setFont('Helvetica-Bold', 20, leading=None)
                 c.drawCentredString(400, 140, "TOTAL:")
                 c.setFont('Helvetica-Bold', 20, leading=None)
-                c.drawCentredString(484, 140, 'D'+total) 
+                c.drawCentredString(484, 140, '$ '+total) 
 
 
                 # SIGN
