@@ -18,12 +18,19 @@
 </head>
 <h1>{{title}}</h1>
 
-<div class="row">
+<div class="jumbotron" >
+    <div class="row">
     
-    {% block title %}
-    {% endblock %}
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            {% block title %}
+            {% endblock %}
+        
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="col-sm-4"></div>
 
-    {% block content %}
-    {% endblock %}
-
+    
+    </div>
 </div>

@@ -1,5 +1,6 @@
 <div class="mymenu-bar">
   <br>
+  {% if request.user.is_authenticated %}
   <a href="/list_invoice">
     <div class="btn btn-primary mybutton">List Invoices</div>
   </a>
@@ -10,7 +11,6 @@
   <br>
   <br>
 
-  {% if request.user.is_authenticated %}
   <a href="/accounts/logout"><button class="btn btn-danger">{{ user }} | Logout</button></a>
   {% else %}
   <a href="/accounts/login"><button class="btn btn-danger">Login</button></a>

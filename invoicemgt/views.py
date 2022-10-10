@@ -7,6 +7,8 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.pagesizes import landscape
 from reportlab.platypus import Image
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import  logout
 # End for report lab
 # Create your views here.
 
@@ -16,6 +18,7 @@ def home(request):
 
     return render (request , "home.html" , context)
 
+@login_required
 def add_invoice(request):
     form = InvoiceForm(request.POST or None)
     queryset = Invoice.objects.order_by('-invoice_date')[:6]
@@ -34,6 +37,7 @@ def add_invoice(request):
 
     return render (request , 'add_invoice.html' , context)
 
+@login_required
 def list_invoice(request):
     title = "List of Invoices"
     queryset = Invoice.objects.all()
@@ -310,6 +314,7 @@ def list_invoice(request):
             import_data(data_file)
     return render (request , "list_invoice.html" , context)
 
+@login_required
 def update_invoice(request,pk):
     queryset = Invoice.objects.get(id=pk)
     form = InvoiceUpdateForm(instance=queryset)
@@ -327,6 +332,7 @@ def update_invoice(request,pk):
     return render(request , 'add_invoice.html' , context)
 
 
+@login_required(login_url='/accounts/login/')
 def delete_invoice(request , pk):
     queryset = Invoice.objects.get(id=pk)
     if request.method == 'POST':
@@ -335,4 +341,8 @@ def delete_invoice(request , pk):
     return render (request , 'delete_invoice.html')
 
 # total_invoices = Invoice.objects.count()
-# 
+
+@login_required(login_url='login')
+def logout_user(request):
+    logout(request)
+    return redirect('home')
