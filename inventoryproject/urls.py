@@ -21,5 +21,8 @@ urlpatterns = [
     # path('accounts/', include('registration.backends.default.urls')),
     path('admin/', admin.site.urls),
     path('' , include('invoicemgt.urls')),
+    path('accounts/',include('django_registration.backends.one_step.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ]
  

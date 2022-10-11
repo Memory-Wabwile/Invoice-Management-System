@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'invoicemgt.apps.InvoicemgtConfig',
     'crispy_forms',
+    'bootstrap4',
     
 ]
 
