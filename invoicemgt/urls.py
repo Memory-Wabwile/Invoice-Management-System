@@ -9,5 +9,8 @@ urlpatterns = [
     path('update_invoice/<str:pk>/', views.update_invoice , name = "update_invoice"),
     path('delete_invoice/<str:pk>/', views.delete_invoice , name = "delete_invoice"),
     path('logout/', views.logout_user, name='logout'),
+    path('register/' , views.registerPage, name ="register"),
+    path('login/' , views.loginPage, name ="login"),
+    path('logout/' , views.logoutUser, name ="logout"),
     
 ]

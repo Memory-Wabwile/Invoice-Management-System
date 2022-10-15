@@ -1,6 +1,8 @@
 from dataclasses import fields
 from django import forms
 from .models import Invoice
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class InvoiceForm(forms.ModelForm):
 	class Meta:
@@ -88,5 +90,10 @@ class InvoiceUpdateForm(forms.ModelForm):
 		if not line_one_quantity:
 			raise forms.ValidationError('This field is required')
 		return line_one_quantity
+
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username' , 'email' , 'password1' , 'password2']
 
 	
