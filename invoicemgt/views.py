@@ -33,7 +33,7 @@ def registerPage(request):
 
     context = {'form':form}
 
-    return render (request , 'store/register.html' , context)
+    return render (request , 'register.html' , context)
 
 def loginPage(request):
     if request.method == 'POST':
@@ -44,13 +44,13 @@ def loginPage(request):
 
         if user is not None:
             login(request,user)
-            return redirect('store')
+            return redirect('list_invoice')
         else:
             messages.info(request , 'username OR password is incorrect')
             
     context = {}
 
-    return render (request , 'store/login.html' , context)
+    return render (request , 'registration/login.html' , context)
 
 def logoutUser(request):
     logout(request)

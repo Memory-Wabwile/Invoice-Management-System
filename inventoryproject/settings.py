@@ -141,6 +141,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
 # REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 # SITE_ID = 1
-# LOGIN_REDIRECT_URL = '/list_invoice'
+LOGIN_REDIRECT_URL = '/list_invoice'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
